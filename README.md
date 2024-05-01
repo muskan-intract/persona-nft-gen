@@ -2,7 +2,7 @@
 
 install python 3.12
 
-# Commands to initiate the project 
+# Commands
 
 pip3 install --upgrade pip <br />
 pip3 intall pipenv <br />
