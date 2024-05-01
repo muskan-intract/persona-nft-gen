@@ -1,0 +1,8 @@
+.vscode/
+__pycache__/
+# Environment files
+.env
+.env*
+
+pipfile.lock
+base/
