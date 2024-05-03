@@ -6,7 +6,8 @@ name = "pypi"
 [packages]
 pymongo = "*"
 python-dotenv = "*"
-selenium = "*"
+selenium = "==4.11.2"
+boto3 = "*"
 
 [dev-packages]
 

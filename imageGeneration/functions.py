@@ -3,12 +3,21 @@ from string import Template
 
 def getPendingRecords(limit=10):
     personaNftCollection = db["tools.persona-nfts"]
-    records = personaNftCollection.find({"status": "TX_CONFIRMED","imageGenerationStatus":"PUSHED_IN_QUEUE"}).sort("_id", 1).limit(limit)
+    records = personaNftCollection.find({"status": "TX_CONFIRMED","imageGenerationStatus":"PUSHED_IN_QUEUE","chainId":8453}).sort("_id", 1).limit(limit)
     return records
 
-def update_record_status(id,status):
+def update_record_status(id,**kwargs):
+    dataToUpdate = {}
+    if(kwargs.get("status")):
+        dataToUpdate["status"] = kwargs.get("status")
+    if(kwargs.get("imageUrl")):
+        dataToUpdate["imageUrl"] = kwargs.get("imageUrl")
+    if(kwargs.get("metadataUrl")):
+        dataToUpdate["metadataUrl"] = kwargs.get("metadataUrl")
+    if kwargs.get("retryCount"):
+        dataToUpdate["retryCount"] = kwargs.get("retryCount")
     personaNftCollection = db["tools.persona-nfts"]
-    personaNftCollection.update_one({"_id":id},{"$set":{"imageGenerationStatus":status}})
+    personaNftCollection.update_one({"_id":id},{"$set":dataToUpdate})
     return "Updated Successfully"
 
 def substitute_template(html_template, metricsData, userAddress):
