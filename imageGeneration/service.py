@@ -73,9 +73,9 @@ def imageGen(tmp_dir,rendered_html,record,specificProcessId):
         #     'image': imageUrl,
         #     'external_url': 'https://intract.io/',
         # }
-        # metadata_json = json.dumps(metadata)
-        # metadata_bytes = metadata_json.encode('utf-8')
-        # metadata_url = save_to_cloud(BytesIO(metadata_bytes), metaDataPath, 'application/json',os.getenv('BUCKET_NAME'))
+        # metadataJSON = json.dumps(metadata)
+        # metadataBytes = metadataJSON.encode('utf-8')
+        # metadata_url = save_to_cloud(BytesIO(metadataBytes), metaDataPath, 'application/json',os.getenv('BUCKET_NAME'))
         # log_dict['metadata_url'] = metadata_url
         return {
             "status":"SUCCESS",
@@ -110,5 +110,5 @@ def save_to_cloud(file_path, aws_path, content_type, bucket_name):
     )
 
     url = f"https://{bucket_name}.s3.amazonaws.com/{aws_path}"
-    url = url.replace(f"https://{bucket_name}.s3.amazonaws.com", 'https://static.highongrowth.xyz/')
+    url = url.replace(f"https://{bucket_name}.s3.amazonaws.com/", 'https://static.highongrowth.xyz/')
     return url        

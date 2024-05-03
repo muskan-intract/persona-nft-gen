@@ -277,13 +277,13 @@ HTML_TEMPLATE_ZKEVM_1 = """
   </head>
   <body>
     <section class="container">
-      <img class="bg_image" src="file:///var/task/assets/nft-card-bg.png" />
+      <img class="bg_image" src="https://static.highongrowth.xyz/enterprise/6436a5f81cda49dc8a18a8f3/5c9d5fed662c4a6cb3481d525f6eb511.png" />
 
       <section class="content_container">
-        <img src="file:///var/task/assets/nft-cover-image.png" class="cover_image" />
+        <img src="https://static.highongrowth.xyz/enterprise/6436a5f81cda49dc8a18a8f3/86e361600cb047a5b35247f4b4b6ab70.png" class="cover_image" />
 
         <section class="chain_section">
-          <img src="file:///var/task/assets/zkevm.png" />
+          <img src="https://static.highongrowth.xyz/enterprise/6436a5f81cda49dc8a18a8f3/99fd8fcca9e74f7fb6bf89fdc4c6ac69.png" />
         
 
           <p>zkEVM Chain</p>
@@ -318,7 +318,7 @@ HTML_TEMPLATE_ZKEVM_1 = """
           </section>
 
           <section class="qr_code">
-            <img src="file:///var/task/assets/qr_code.png" />
+            <img src="https://static.highongrowth.xyz/enterprise/6436a5f81cda49dc8a18a8f3/c9aa9ded0497444195eeea20e3c4e558.png" />
           </section>
         </section>
 
@@ -554,13 +554,13 @@ HTML_TEMPLATE_LINEA_1 = """
 		<section class="container">
 			<section class="content_container">
 				<section class="chain_section">
-					<img src="file:///var/task/assets/linea/defi-voyager.png" />
+					<img src="https://static.highongrowth.xyz/enterprise/6436a5f81cda49dc8a18a8f3/ea6af00c71504a9bb02d6662ba740eeb.png" />
 
-					<img src="file:///var/task/assets/linea/intract-logo.png" />
+					<img src="https://static.highongrowth.xyz/enterprise/6436a5f81cda49dc8a18a8f3/0ea3cf33cb6e401f90ccce02c1821e86.png" />
 				</section>
 
 				<img
-					src="file:///var/task/assets/linea/cover.png"
+					src="https://static.highongrowth.xyz/enterprise/6436a5f81cda49dc8a18a8f3/a1d73c6b450b44ec9d8a552fc33613c8.png"
 					class="cover_image"
 				/>
 
@@ -594,15 +594,13 @@ HTML_TEMPLATE_LINEA_1 = """
 				</section>
 
 				<section class="footer">
-					<img src="file:///var/task/assets/linea/linea-logo.png" />
-					<img
-						src="file:///var/task/assets/linea/linea-voyage-deFi.png"
-					/>
-				</section>
+          <img src="https://static.highongrowth.xyz/enterprise/6436a5f81cda49dc8a18a8f3/ccc347d2751a4dbb804ca62c1429220c.png" />
+          <img src="https://static.highongrowth.xyz/enterprise/6436a5f81cda49dc8a18a8f3/a83e00176f6e484da2a457d116b20fcd.png" />
+        </section>
 			</section>
 
 			<img
-				src="file:///var/task/assets/linea/blocks.png"
+				src="https://static.highongrowth.xyz/enterprise/6436a5f81cda49dc8a18a8f3/71fc4570f40e43b086408ba527f0c5e1.png"
 				class="overlay"
 			/>
 		</section>
@@ -886,10 +884,10 @@ HTML_TEMPLATE_BASE_1 = """
     <section class="container">
       <section class="content_container">
         <section class="chain_section">
-          <img src="./base/intract-logo.png" />
+          <img src= "https://static.highongrowth.xyz/enterprise/6436a5f81cda49dc8a18a8f3/0ea3cf33cb6e401f90ccce02c1821e86.png" />
         </section>
 
-        <img src="./base/nft-samurai.png" class="cover_image" />
+        <img src="https://static.highongrowth.xyz/enterprise/6436a5f81cda49dc8a18a8f3/c67a6c46050c486d88aff648aa693803.png" class="cover_image" />
 
         <section class="address">${userAddress}</section>
 
@@ -924,10 +922,1275 @@ HTML_TEMPLATE_BASE_1 = """
         <section class="divider"></section>
 
         <section class="footer">
-          <img src="./base/base-logo.svg" />
+          <img src="https://static.highongrowth.xyz/enterprise/6436a5f81cda49dc8a18a8f3/d51cb2faafcd42dc95de5e05358ecba8.svg" />
           <h4>Base</h4>
 
           <p>Base Onchain Compass Pro</p>
+        </section>
+      </section>
+    </section>
+  </body>
+</html>
+"""
+
+HTML_TEMPLATE_BLAST_1 = """
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Outfit:100,200,300,regular,500,600,700,800%7CIBM+Plex+Sans+Hebrew:200,300,regular,500,600"
+      media="all"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      body {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content:center;
+            overflow: hidden !important;
+            background: transparent !important;
+            margin: 0px !important
+          
+        }
+
+      * {
+        margin: 0px;
+         overflow: hidden !important;
+      }
+
+      .container {
+        position: relative;
+        overflow: hidden;
+        height: fit-content;
+        width: 330px;
+        border: 1.5px solid rgba(255, 255, 255, 0.2);
+        background: linear-gradient(
+          180deg,
+          #252525 0%,
+          #1b1b1b 25.29%,
+          #131313 63.63%,
+          #080808 100%
+        );
+      }
+
+      .container > img {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .container .content_container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 14px;
+        position: relative;
+        z-index: 3;
+      }
+
+      .content_container .cover_image {
+        width: 100%;
+        object-position: top;
+        margin-bottom: 16px;
+      }
+
+      .content_container .chain_section {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        width: 100%;
+        justify-content: space-between;
+        margin-bottom: 12px;
+      }
+
+      .content_container .chain_section > img:nth-child(1) {
+        max-width: 100px;
+        width: 100%;
+      }
+
+      .content_container .chain_section > img {
+        width: 100%;
+        max-width: 110px;
+      }
+
+      .content_container .chain_section p {
+        color: #fff;
+        font-family: Outfit;
+        font-size: 13.733px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 17.167px; /* 125% */
+        letter-spacing: 0.1px;
+      }
+
+      .content_container .chain_section span {
+        color: rgba(255, 255, 255, 0.6);
+        font-family: Outfit;
+        font-size: 12.017px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 13.733px; /* 114.286% */
+        letter-spacing: 0.1px;
+
+        margin-left: auto;
+      }
+
+      .divider {
+        border-radius: 1000px;
+        background: linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.15) 0%,
+          rgba(255, 255, 255, 0.12) 100%
+        );
+        width: 100%;
+        height: 1px;
+        margin-bottom: 16px;
+      }
+
+      .data {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .data .list {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex: 1;
+        margin-bottom: 4rem;
+      }
+
+      .data .list div {
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+        display: flex;
+        margin-bottom: 0.5rem;
+      }
+
+      .data .list div p {
+        color: rgba(255, 255, 255, 0.6);
+        font-family: Outfit;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        letter-spacing: 0.117px;
+      }
+
+      .card_highlighted .data .list div p {
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      .data .list div span:nth-child(3) {
+        color: rgba(255, 255, 255, 0.8) !important;
+        text-align: right;
+        font-family: Outfit;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        letter-spacing: 0.117px;
+      }
+
+      .data .list div span:nth-child(2) {
+        margin-left: auto;
+        color: rgba(255, 255, 255, 0.9);
+        font-family: Outfit;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        letter-spacing: 0.117px;
+      }
+
+      .card_highlighted .data .list div span {
+        color: #fff;
+      }
+
+      .qr_code {
+        width: 90px;
+        aspect-ratio: 1/1;
+        padding: 4px;
+        background-color: white;
+      }
+
+      .address {
+        color: rgba(255, 255, 255, 0.6);
+        text-align: center;
+        font-feature-settings: "ss06" on, "ss02" on, "liga" off;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 12px; /* 109.091% */
+        letter-spacing: 0.117px;
+        font-family: Outfit;
+        margin-bottom: 16px;
+      }
+
+      .card_highlighted .address {
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      .loading_animation {
+        animation: loading_animation 1s ease-in-out infinite alternate;
+      }
+
+      .container .footer {
+        padding: 10px 0.75rem;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin-top: -0.25rem;
+        gap: 0.4rem;
+
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0.16) 0%,
+          rgba(0, 0, 0, 0.4) 100%
+        );
+        box-shadow: 0px 2px 4px 0px rgba(255, 255, 255, 0.1) inset;
+      }
+
+      .card_highlighted .footer {
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        background: linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0.08) 0%,
+          rgba(0, 0, 0, 0.15) 100%
+        );
+        backdrop-filter: blur(10px);
+      }
+
+      .container .footer > img:nth-child(1) {
+        width: 80px;
+        height: 16px;
+        flex-shrink: 0;
+        object-fit: contain;
+      }
+
+      .container .footer > h4 {
+        color: #fff;
+        font-family: Outfit;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 20px; /* 125% */
+        letter-spacing: 0.117px;
+      }
+
+      .container .footer > p {
+        color: rgba(255, 255, 255, 0.8);
+        font-family: Outfit;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 16px; /* 114.286% */
+        letter-spacing: 0.117px;
+        margin-left: auto;
+      }
+
+      .container .overlay {
+        position: absolute;
+        bottom: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <section class="container">
+      <section class="content_container">
+        <section class="chain_section">
+          <img src= "https://static.highongrowth.xyz/enterprise/6436a5f81cda49dc8a18a8f3/0ea3cf33cb6e401f90ccce02c1821e86.png" />
+        </section>
+
+        <img src="https://static.highongrowth.xyz/enterprise/6436a5f81cda49dc8a18a8f3/23003709171f4bc2b86527fa51655b8f.png" class="cover_image" />
+
+        <section class="address">${userAddress}</section>
+
+        <section class="divider"></section>
+
+        <section class="data">
+          <section class="list">
+            <div>
+              <p>Total Volume</p>
+              <span>${volume}</span>
+            </div>
+            <div>
+              <p>Total Transactions</p>
+              <span>${txncount}</span>
+            </div>
+
+            <div>
+              <p>Unique Addresses</p>
+              <span>${uniqueAddressesInteractedWith}</span>
+            </div>
+          </section>
+        </section>
+
+        <section class="divider"></section>
+
+        <section class="footer">
+          <img src="https://static.highongrowth.xyz/enterprise/6436a5f81cda49dc8a18a8f3/68cf5d453a5249d6b7f6c5c9a78267e4.png"/>
+
+          <p>BLAST Onchain Compass</p>
+        </section>
+      </section>
+    </section>
+  </body>
+</html>
+"""
+
+HTML_TEMPLATE_ZKSYNC_1 = """
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Outfit:100,200,300,regular,500,600,700,800%7CIBM+Plex+Sans+Hebrew:200,300,regular,500,600"
+      media="all"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      body {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content:center;
+            overflow: hidden !important;
+            background: transparent !important;
+            margin: 0px !important
+          
+        }
+
+      * {
+        margin: 0px;
+         overflow: hidden !important;
+      }
+
+      .container {
+        position: relative;
+        overflow: hidden;
+        height: fit-content;
+        width: 330px;
+        border: 1.5px solid rgba(255, 255, 255, 0.2);
+        background: linear-gradient(
+          180deg,
+          #252525 0%,
+          #1b1b1b 25.29%,
+          #131313 63.63%,
+          #080808 100%
+        );
+      }
+
+      .container > img {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .container .content_container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 14px;
+        position: relative;
+        z-index: 3;
+      }
+
+      .content_container .cover_image {
+        width: 100%;
+        object-position: top;
+        margin-bottom: 16px;
+      }
+
+      .content_container .chain_section {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        width: 100%;
+        justify-content: space-between;
+        margin-bottom: 12px;
+      }
+
+      .content_container .chain_section > img:nth-child(1) {
+        max-width: 100px;
+        width: 100%;
+      }
+
+      .content_container .chain_section > img {
+        width: 100%;
+        max-width: 110px;
+      }
+
+      .content_container .chain_section p {
+        color: #fff;
+        font-family: Outfit;
+        font-size: 13.733px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 17.167px; /* 125% */
+        letter-spacing: 0.1px;
+      }
+
+      .content_container .chain_section span {
+        color: rgba(255, 255, 255, 0.6);
+        font-family: Outfit;
+        font-size: 12.017px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 13.733px; /* 114.286% */
+        letter-spacing: 0.1px;
+
+        margin-left: auto;
+      }
+
+      .divider {
+        border-radius: 1000px;
+        background: linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.15) 0%,
+          rgba(255, 255, 255, 0.12) 100%
+        );
+        width: 100%;
+        height: 1px;
+        margin-bottom: 16px;
+      }
+
+      .data {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .data .list {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex: 1;
+        margin-bottom: 4rem;
+      }
+
+      .data .list div {
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+        display: flex;
+        margin-bottom: 0.5rem;
+      }
+
+      .data .list div p {
+        color: rgba(255, 255, 255, 0.6);
+        font-family: Outfit;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        letter-spacing: 0.117px;
+      }
+
+      .card_highlighted .data .list div p {
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      .data .list div span:nth-child(3) {
+        color: rgba(255, 255, 255, 0.8) !important;
+        text-align: right;
+        font-family: Outfit;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        letter-spacing: 0.117px;
+      }
+
+      .data .list div span:nth-child(2) {
+        margin-left: auto;
+        color: rgba(255, 255, 255, 0.9);
+        font-family: Outfit;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        letter-spacing: 0.117px;
+      }
+
+      .card_highlighted .data .list div span {
+        color: #fff;
+      }
+
+      .qr_code {
+        width: 90px;
+        aspect-ratio: 1/1;
+        padding: 4px;
+        background-color: white;
+      }
+
+      .address {
+        color: rgba(255, 255, 255, 0.6);
+        text-align: center;
+        font-feature-settings: "ss06" on, "ss02" on, "liga" off;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 12px; /* 109.091% */
+        letter-spacing: 0.117px;
+        font-family: Outfit;
+        margin-bottom: 16px;
+      }
+
+      .card_highlighted .address {
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      .loading_animation {
+        animation: loading_animation 1s ease-in-out infinite alternate;
+      }
+
+      .container .footer {
+        padding: 10px 0.75rem;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin-top: -0.25rem;
+        gap: 0.4rem;
+
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0.16) 0%,
+          rgba(0, 0, 0, 0.4) 100%
+        );
+        box-shadow: 0px 2px 4px 0px rgba(255, 255, 255, 0.1) inset;
+      }
+
+      .card_highlighted .footer {
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        background: linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0.08) 0%,
+          rgba(0, 0, 0, 0.15) 100%
+        );
+        backdrop-filter: blur(10px);
+      }
+
+      .container .footer > img:nth-child(1) {
+        width: 82px;
+        height: 16px;
+        flex-shrink: 0;
+        object-fit: contain;
+      }
+
+      .container .footer > h4 {
+        color: #fff;
+        font-family: Outfit;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 20px; /* 125% */
+        letter-spacing: 0.117px;
+      }
+
+      .container .footer > p {
+        color: rgba(255, 255, 255, 0.8);
+        font-family: Outfit;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 16px; /* 114.286% */
+        letter-spacing: 0.117px;
+        margin-left: auto;
+      }
+
+      .container .overlay {
+        position: absolute;
+        bottom: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <section class="container">
+      <section class="content_container">
+        <section class="chain_section">
+          <img src= "https://static.highongrowth.xyz/enterprise/6436a5f81cda49dc8a18a8f3/0ea3cf33cb6e401f90ccce02c1821e86.png" />
+        </section>
+
+        <img src="https://static.highongrowth.xyz/enterprise/6436a5f81cda49dc8a18a8f3/b787e4f0fdc243659f6b1700d7bd6645.png" class="cover_image" />
+
+        <section class="address">${userAddress}</section>
+
+        <section class="divider"></section>
+
+        <section class="data">
+          <section class="list">
+            <div>
+              <p>Total Volume</p>
+              <span>${volume}</span>
+            </div>
+            <div>
+              <p>Total Transactions</p>
+              <span>${txncount}</span>
+            </div>
+
+            <div>
+              <p>Unique Addresses</p>
+              <span>${uniqueAddressesInteractedWith}</span>
+            </div>
+          </section>
+        </section>
+
+
+        <section class="divider"></section>
+
+        <section class="footer">
+          <img src="https://static.highongrowth.xyz/enterprise/6436a5f81cda49dc8a18a8f3/674f2e70ecb74d67885e56ffe1afc40a.png"/>
+
+          <p>zkSync Onchain Compass</p>
+        </section>
+      </section>
+    </section>
+  </body>
+</html>
+"""
+
+HTML_TEMPLATE_MODE_1 = """
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Outfit:100,200,300,regular,500,600,700,800%7CIBM+Plex+Sans+Hebrew:200,300,regular,500,600"
+      media="all"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      body {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content:center;
+            overflow: hidden !important;
+            background: transparent !important;
+            margin: 0px !important
+          
+        }
+
+      * {
+        margin: 0px;
+         overflow: hidden !important;
+      }
+
+      .container {
+        position: relative;
+        overflow: hidden;
+        height: fit-content;
+        width: 330px;
+        border: 1.5px solid rgba(255, 255, 255, 0.2);
+        background: linear-gradient(
+          180deg,
+          #252525 0%,
+          #1b1b1b 25.29%,
+          #131313 63.63%,
+          #080808 100%
+        );
+      }
+
+      .container > img {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .container .content_container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 14px;
+        position: relative;
+        z-index: 3;
+      }
+
+      .content_container .cover_image {
+        width: 100%;
+        object-position: top;
+        margin-bottom: 16px;
+      }
+
+      .content_container .chain_section {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        width: 100%;
+        justify-content: space-between;
+        margin-bottom: 12px;
+      }
+
+      .content_container .chain_section > img:nth-child(1) {
+        max-width: 100px;
+        width: 100%;
+      }
+
+      .content_container .chain_section > img {
+        width: 100%;
+        max-width: 110px;
+      }
+
+      .content_container .chain_section p {
+        color: #fff;
+        font-family: Outfit;
+        font-size: 13.733px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 17.167px; /* 125% */
+        letter-spacing: 0.1px;
+      }
+
+      .content_container .chain_section span {
+        color: rgba(255, 255, 255, 0.6);
+        font-family: Outfit;
+        font-size: 12.017px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 13.733px; /* 114.286% */
+        letter-spacing: 0.1px;
+
+        margin-left: auto;
+      }
+
+      .divider {
+        border-radius: 1000px;
+        background: linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.15) 0%,
+          rgba(255, 255, 255, 0.12) 100%
+        );
+        width: 100%;
+        height: 1px;
+        margin-bottom: 16px;
+      }
+
+      .data {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .data .list {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex: 1;
+        margin-bottom: 4rem;
+      }
+
+      .data .list div {
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+        display: flex;
+        margin-bottom: 0.5rem;
+      }
+
+      .data .list div p {
+        color: rgba(255, 255, 255, 0.6);
+        font-family: Outfit;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        letter-spacing: 0.117px;
+      }
+
+      .card_highlighted .data .list div p {
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      .data .list div span:nth-child(3) {
+        color: rgba(255, 255, 255, 0.8) !important;
+        text-align: right;
+        font-family: Outfit;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        letter-spacing: 0.117px;
+      }
+
+      .data .list div span:nth-child(2) {
+        margin-left: auto;
+        color: rgba(255, 255, 255, 0.9);
+        font-family: Outfit;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        letter-spacing: 0.117px;
+      }
+
+      .card_highlighted .data .list div span {
+        color: #fff;
+      }
+
+      .qr_code {
+        width: 90px;
+        aspect-ratio: 1/1;
+        padding: 4px;
+        background-color: white;
+      }
+
+      .address {
+        color: rgba(255, 255, 255, 0.6);
+        text-align: center;
+        font-feature-settings: "ss06" on, "ss02" on, "liga" off;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 12px; /* 109.091% */
+        letter-spacing: 0.117px;
+        font-family: Outfit;
+        margin-bottom: 16px;
+      }
+
+      .card_highlighted .address {
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      .loading_animation {
+        animation: loading_animation 1s ease-in-out infinite alternate;
+      }
+
+      .container .footer {
+        padding: 10px 4px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin-top: -0.25rem;
+        gap: 0.4rem;
+
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0.16) 0%,
+          rgba(0, 0, 0, 0.4) 100%
+        );
+        box-shadow: 0px 2px 4px 0px rgba(255, 255, 255, 0.1) inset;
+      }
+
+      .card_highlighted .footer {
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        background: linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0.08) 0%,
+          rgba(0, 0, 0, 0.15) 100%
+        );
+        backdrop-filter: blur(10px);
+      }
+
+      .container .footer > img:nth-child(1) {
+        width: 80px;
+        height: 16px;
+        flex-shrink: 0;
+        object-fit: contain;
+      }
+
+      .container .footer > h4 {
+        color: #fff;
+        font-family: Outfit;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 20px; /* 125% */
+        letter-spacing: 0.117px;
+      }
+
+      .container .footer > p {
+        color: rgba(255, 255, 255, 0.8);
+        font-family: Outfit;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 16px; /* 114.286% */
+        letter-spacing: 0.117px;
+        margin-left: auto;
+      }
+
+      .container .overlay {
+        position: absolute;
+        bottom: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <section class="container">
+      <section class="content_container">
+        <section class="chain_section">
+          <img src= "https://static.highongrowth.xyz/enterprise/6436a5f81cda49dc8a18a8f3/0ea3cf33cb6e401f90ccce02c1821e86.png" />
+        </section>
+
+        <img src="https://static.highongrowth.xyz/enterprise/6436a5f81cda49dc8a18a8f3/51c8d521f2fa4a438bc3494696a5f954.png" class="cover_image" />
+
+        <section class="address">${userAddress}</section>
+
+        <section class="divider"></section>
+
+        <section class="data">
+          <section class="list">
+            <div>
+              <p>Total Volume</p>
+              <span>${volume}</span>
+            </div>
+            <div>
+              <p>Total Transactions</p>
+              <span>${txncount}</span>
+            </div>
+
+            <div>
+              <p>Unique Addresses</p>
+              <span>${uniqueAddressesInteractedWith}</span>
+            </div>
+          </section>
+        </section>
+
+        <section class="divider"></section>
+
+        <section class="footer">
+          <img src="https://static.highongrowth.xyz/enterprise/6436a5f81cda49dc8a18a8f3/55da8fdba6854ba2b2a10f986036620f.png"/>
+
+          <p>MODE Onchain Compass</p>
+        </section>
+      </section>
+    </section>
+  </body>
+</html>
+"""
+
+HTML_TEMPLATE_ZORA_1 = """
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Outfit:100,200,300,regular,500,600,700,800%7CIBM+Plex+Sans+Hebrew:200,300,regular,500,600"
+      media="all"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      body {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content:center;
+            overflow: hidden !important;
+            background: transparent !important;
+            margin: 0px !important
+          
+        }
+
+      * {
+        margin: 0px;
+         overflow: hidden !important;
+      }
+
+      .container {
+        position: relative;
+        overflow: hidden;
+        height: fit-content;
+        width: 330px;
+        border: 1.5px solid rgba(255, 255, 255, 0.2);
+        background: linear-gradient(
+          180deg,
+          #252525 0%,
+          #1b1b1b 25.29%,
+          #131313 63.63%,
+          #080808 100%
+        );
+      }
+
+      .container > img {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .container .content_container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 14px;
+        position: relative;
+        z-index: 3;
+      }
+
+      .content_container .cover_image {
+        width: 100%;
+        object-position: top;
+        margin-bottom: 16px;
+      }
+
+      .content_container .chain_section {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        width: 100%;
+        justify-content: space-between;
+        margin-bottom: 12px;
+      }
+
+      .content_container .chain_section > img:nth-child(1) {
+        max-width: 100px;
+        width: 100%;
+      }
+
+      .content_container .chain_section > img {
+        width: 100%;
+        max-width: 110px;
+      }
+
+      .content_container .chain_section p {
+        color: #fff;
+        font-family: Outfit;
+        font-size: 13.733px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 17.167px; /* 125% */
+        letter-spacing: 0.1px;
+      }
+
+      .content_container .chain_section span {
+        color: rgba(255, 255, 255, 0.6);
+        font-family: Outfit;
+        font-size: 12.017px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 13.733px; /* 114.286% */
+        letter-spacing: 0.1px;
+
+        margin-left: auto;
+      }
+
+      .divider {
+        border-radius: 1000px;
+        background: linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.15) 0%,
+          rgba(255, 255, 255, 0.12) 100%
+        );
+        width: 100%;
+        height: 1px;
+        margin-bottom: 16px;
+      }
+
+      .data {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .data .list {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex: 1;
+        margin-bottom: 4rem;
+      }
+
+      .data .list div {
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+        display: flex;
+        margin-bottom: 0.5rem;
+      }
+
+      .data .list div p {
+        color: rgba(255, 255, 255, 0.6);
+        font-family: Outfit;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        letter-spacing: 0.117px;
+      }
+
+      .card_highlighted .data .list div p {
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      .data .list div span:nth-child(3) {
+        color: rgba(255, 255, 255, 0.8) !important;
+        text-align: right;
+        font-family: Outfit;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        letter-spacing: 0.117px;
+      }
+
+      .data .list div span:nth-child(2) {
+        margin-left: auto;
+        color: rgba(255, 255, 255, 0.9);
+        font-family: Outfit;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        letter-spacing: 0.117px;
+      }
+
+      .card_highlighted .data .list div span {
+        color: #fff;
+      }
+
+      .qr_code {
+        width: 90px;
+        aspect-ratio: 1/1;
+        padding: 4px;
+        background-color: white;
+      }
+
+      .address {
+        color: rgba(255, 255, 255, 0.6);
+        text-align: center;
+        font-feature-settings: "ss06" on, "ss02" on, "liga" off;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 12px; /* 109.091% */
+        letter-spacing: 0.117px;
+        font-family: Outfit;
+        margin-bottom: 16px;
+      }
+
+      .card_highlighted .address {
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      .loading_animation {
+        animation: loading_animation 1s ease-in-out infinite alternate;
+      }
+
+      .container .footer {
+        padding: 10px 4px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin-top: -0.25rem;
+        gap: 0.4rem;
+
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0.16) 0%,
+          rgba(0, 0, 0, 0.4) 100%
+        );
+        box-shadow: 0px 2px 4px 0px rgba(255, 255, 255, 0.1) inset;
+      }
+
+      .card_highlighted .footer {
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        background: linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0.08) 0%,
+          rgba(0, 0, 0, 0.15) 100%
+        );
+        backdrop-filter: blur(10px);
+      }
+
+      .container .footer > img:nth-child(1) {
+        width: 80px;
+        height: 16px;
+        flex-shrink: 0;
+        object-fit: contain;
+      }
+
+      .container .footer > h4 {
+        color: #fff;
+        font-family: Outfit;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 20px; /* 125% */
+        letter-spacing: 0.117px;
+      }
+
+      .container .footer > p {
+        color: rgba(255, 255, 255, 0.8);
+        font-family: Outfit;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 16px; /* 114.286% */
+        letter-spacing: 0.117px;
+        margin-left: auto;
+      }
+
+      .container .overlay {
+        position: absolute;
+        bottom: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <section class="container">
+      <section class="content_container">
+        <section class="chain_section">
+          <img src= "https://static.highongrowth.xyz/enterprise/6436a5f81cda49dc8a18a8f3/0ea3cf33cb6e401f90ccce02c1821e86.png" />
+        </section>
+
+        <img src="https://static.highongrowth.xyz/enterprise/6436a5f81cda49dc8a18a8f3/ed5ea45d16d44d36ad563ee54cde50ba.png" class="cover_image" />
+
+        <section class="address">${userAddress}</section>
+
+        <section class="divider"></section>
+
+        <section class="data">
+          <section class="list">
+            <div>
+              <p>Total Volume</p>
+              <span>${volume}</span>
+            </div>
+            <div>
+              <p>Total Transactions</p>
+              <span>${txncount}</span>
+            </div>
+
+            <div>
+              <p>Unique Addresses</p>
+              <span>${uniqueAddressesInteractedWith}</span>
+            </div>
+          </section>
+        </section>
+
+        <section class="divider"></section>
+
+        <section class="footer">
+          <img src="https://static.highongrowth.xyz/enterprise/6436a5f81cda49dc8a18a8f3/a94ec4cf9f304496a32594c6fe0e576d.png"/>
+
+          <p>ZORA Onchain Compass</p>
         </section>
       </section>
     </section>
