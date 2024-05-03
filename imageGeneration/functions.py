@@ -3,13 +3,13 @@ from string import Template
 
 def getPendingRecords(limit=10):
     personaNftCollection = db["tools.persona-nfts"]
-    records = personaNftCollection.find({"status": "TX_CONFIRMED","imageGenerationStatus":"PUSHED_IN_QUEUE","chainId":8453}).sort("_id", 1).limit(limit)
-    return records
+    records = personaNftCollection.find({"status": "TX_CONFIRMED","imageGenerationStatus":"PUSHED_IN_QUEUE"}).sort("_id", 1).limit(limit)
+    return list(records)
 
 def update_record_status(id,**kwargs):
     dataToUpdate = {}
     if(kwargs.get("status")):
-        dataToUpdate["status"] = kwargs.get("status")
+        dataToUpdate["imageGenerationStatus"] = kwargs.get("status")
     if(kwargs.get("imageUrl")):
         dataToUpdate["imageUrl"] = kwargs.get("imageUrl")
     if(kwargs.get("metadataUrl")):

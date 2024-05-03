@@ -22,7 +22,7 @@ def imageGen(tmp_dir,rendered_html,record,specificProcessId):
     userAddress = record.get("userAddress")
     nftContractAddress = record.get("nftContractAddress")
     tier = record.get("tier")
-    log_dict = {"process_id": specificProcessId, "message": f"Starting image generation for {recordId}."}
+    log_dict = {"specificProcessId": specificProcessId, "message": f"Starting image generation for {recordId}."}
     Log_data(log_dict)
     try:
         file_path = userAddress + nftContractAddress + tokenId + str(chainId) + ".png"
@@ -54,35 +54,35 @@ def imageGen(tmp_dir,rendered_html,record,specificProcessId):
         log_dict['screenshot_completes'] = 'screen shot completed successfully.'
         Log_data(log_dict)
         # get s3 imageURL
-        imagePath = ''
-        if(chainId == ZKEVM_CHAIN_ID):
-            imagePath = f"persona-nfts/images/{os.getenv('ENVIRONMENT').lower()}/{userAddress}.png"
-        else:
-            imagePath = f"persona-nfts/images/{os.getenv('ENVIRONMENT').lower()}/{chainId}/{nftContractAddress}/image/{tokenId}.png"         
-        imageUrl = save_to_cloud(screenshot_file_path, imagePath, mimetypes.guess_type(imagePath)[0],os.getenv('BUCKET_NAME'))
-        log_dict['image_url'] = imageUrl
-        #get s3 metadataURL
-        metaDataPath = ''
-        if(chainId == ZKEVM_CHAIN_ID):
-            metaDataPath = f"persona-nfts/metadata/{os.getenv('ENVIRONMENT').lower()}/{tokenId}"
-        else:
-            metaDataPath = f"persona-nfts/metadata/{os.getenv('ENVIRONMENT').lower()}/{chainId}/{nftContractAddress}/metadata/{tokenId}"
-        metadata = {
-            'name': 'Intract Persona NFT',
-            'description': f"This NFT represents the on-chain persona of Intract user {userAddress}",
-            'image': imageUrl,
-            'external_url': 'https://intract.io/',
-        }
-        metadata_json = json.dumps(metadata)
-        metadata_bytes = metadata_json.encode('utf-8')
-        metadata_url = save_to_cloud(BytesIO(metadata_bytes), metaDataPath, 'application/json',os.getenv('BUCKET_NAME'))
-        log_dict['metadata_url'] = metadata_url
+        # imagePath = ''
+        # if(chainId == ZKEVM_CHAIN_ID):
+        #     imagePath = f"persona-nfts/images/{os.getenv('ENVIRONMENT').lower()}/{userAddress}.png"
+        # else:
+        #     imagePath = f"persona-nfts/images/{os.getenv('ENVIRONMENT').lower()}/{chainId}/{nftContractAddress}/image/{tokenId}.png"         
+        # imageUrl = save_to_cloud(screenshot_file_path, imagePath, mimetypes.guess_type(imagePath)[0],os.getenv('BUCKET_NAME'))
+        # log_dict['image_url'] = imageUrl
+        # #get s3 metadataURL
+        # metaDataPath = ''
+        # if(chainId == ZKEVM_CHAIN_ID):
+        #     metaDataPath = f"persona-nfts/metadata/{os.getenv('ENVIRONMENT').lower()}/{tokenId}"
+        # else:
+        #     metaDataPath = f"persona-nfts/metadata/{os.getenv('ENVIRONMENT').lower()}/{chainId}/{nftContractAddress}/metadata/{tokenId}"
+        # metadata = {
+        #     'name': 'Intract Persona NFT',
+        #     'description': f"This NFT represents the on-chain persona of Intract user {userAddress}",
+        #     'image': imageUrl,
+        #     'external_url': 'https://intract.io/',
+        # }
+        # metadata_json = json.dumps(metadata)
+        # metadata_bytes = metadata_json.encode('utf-8')
+        # metadata_url = save_to_cloud(BytesIO(metadata_bytes), metaDataPath, 'application/json',os.getenv('BUCKET_NAME'))
+        # log_dict['metadata_url'] = metadata_url
         return {
             "status":"SUCCESS",
             "specificProcessId" : specificProcessId,
             "recordId":recordId,
-            "imageUrl":imageUrl,
-            "metadataUrl":metadata_url
+            # "imageUrl":imageUrl,
+            # "metadataUrl":metadata_url
         }
     except Exception as e:
         log_dict['error'] = str(e)
@@ -100,15 +100,15 @@ def imageGen(tmp_dir,rendered_html,record,specificProcessId):
         
 
 def save_to_cloud(file_path, aws_path, content_type, bucket_name):
-        aws_path = aws_path
-        content_type = mimetypes.guess_type(aws_path)[0]
-        s3_client.upload_file(
-            Filename=file_path,
-            Bucket=bucket_name,
-            Key=aws_path,
-            ExtraArgs={'ContentType': content_type}
-        )
+    aws_path = aws_path
+    content_type = mimetypes.guess_type(aws_path)[0]
+    s3_client.upload_file(
+        Filename=file_path,
+        Bucket=bucket_name,
+        Key=aws_path,
+        ExtraArgs={'ContentType': content_type}
+    )
 
-        url = f"https://{bucket_name}.s3.amazonaws.com/{aws_path}"
-        url = url.replace(f"https://{bucket_name}.s3.amazonaws.com", 'https://static.highongrowth.xyz/')
-        return url        
+    url = f"https://{bucket_name}.s3.amazonaws.com/{aws_path}"
+    url = url.replace(f"https://{bucket_name}.s3.amazonaws.com", 'https://static.highongrowth.xyz/')
+    return url        

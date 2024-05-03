@@ -13,14 +13,14 @@ def start_server():
 if __name__ == "__main__":
     if check_mongo_connection():
         start_server()
-        # while(True):
-        try:
-            process_id = str(uuid.uuid4())
-            result = imageGenerator(process_id)
-            Log_data(result)
-            time.sleep(60)   
-        except Exception as e:
-            Log_data({"error in main loop":str(e)})
+        while(True):
+            try:
+                processId = str(uuid.uuid4())
+                result = imageGenerator(processId)
+                Log_data(result)
+                time.sleep(60)   
+            except Exception as e:
+                Log_data({"error in main loop":str(e)})
     else:
         Log_data({"Error":"Cannot start server due to MongoDB connection failure."})
      

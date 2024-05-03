@@ -6,29 +6,26 @@ from htmlTemplates.configurations import configuraitons
 from imageGeneration.functions import *
 from imageGeneration.service import *
 
-def imageGenerator(process_id):
-    log_dict = {"message": "Starting image generation process...", "process_id": process_id}
+def imageGenerator(processId):
+    log_dict = {"message": "Starting image generation process...", "processId": processId}
     Log_data(log_dict)
     records = getPendingRecords(int(os.getenv("LIMIT",10)))
     log_dict['limit'] = os.getenv("LIMIT")
     log_dict['records'] = records
     Log_data(log_dict)
-    has_documents = False
-    for _ in records:
-        has_documents = True
-        records.rewind()    # Using to reset the cursor to the beginning of the records
-        break
-    if not has_documents:
-        return "No records to process"
+    if(len(records) == 0):
+        return {"message": "No records to process"}
+
     # Creating a thread pool with a maximum of 5 threads
     with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
         futures = []
-        tmp_dir = "tem"
+        tmp_dir = "tmp"
         os.makedirs(tmp_dir,exist_ok=True)
         for record in records:
             recordId = record.get("_id")
             specificProcessId = str(uuid.uuid4())
-            job_dict = {"recordId": specificProcessId, "process_id": process_id, recordId:recordId}
+            job_dict = {"specificProcessId": specificProcessId, "processId": processId, "recordId":recordId}
+            Log_data(job_dict)
             metricsData = record.get("metrics",{})
             userAddress = record.get("userAddress")
             tier = record.get("tier")
@@ -61,7 +58,7 @@ def imageGenerator(process_id):
             try:
                 result = future.result()
                 result.get('specificProcessId')
-                new_dict = {"message": "Processed record", "result": result, process_id:process_id}
+                new_dict = {"message": "Processed record", "result": result, processId:processId}
                 Log_data(new_dict)
                 recordId = result.get('recordId')
                 if result.get('status') == "SUCCESS":
@@ -81,4 +78,4 @@ def imageGenerator(process_id):
 
         # Clean up the temporary directory
         shutil.rmtree(tmp_dir)
-    return "Processed all records"    
+    return {"message": "Processed all records"}
