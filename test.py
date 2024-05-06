@@ -1,5 +1,4 @@
-import os, time, sys
-import subprocess
+import os
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
@@ -7,9 +6,6 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from imageGeneration.functions import *
 import urllib.parse
-import base64
-
-
 from selenium.webdriver.chrome.service import Service
 from htmlTemplates.configurations import configuraitons
 
@@ -17,16 +13,32 @@ def test():
     try:
         tmp_dir = "outputs"
         os.makedirs(tmp_dir,exist_ok=True)  
-        file_path = "blast2.png"
+        file_path = "base4567.png"
         screenshot_file_path = os.path.join(tmp_dir, file_path) 
-        chainId = 81457 
-        tier = "TIER2"
+        chainId = 8453 
+        tier = "TIER1"
         html_template = configuraitons.get(chainId).get(tier).get('template')
         configWidth = configuraitons.get(chainId).get(tier).get('width',None)
         configHeight = configuraitons.get(chainId).get(tier).get('height',None)
         width = configWidth if configWidth else 375
         height = configHeight if configHeight else 545
-        rendered_html = substitute_template(html_template, {}, ')hdgvb')
+        me = {
+            "txncount": "107",
+            "volume": "$199.7",
+            "uniqueAddressesInteractedWith": "78",
+            "uniqueDaysActive": "22d",
+            "age": "60d",
+            "gasPaid": "$62",
+            "txncountPercentile": "2.39%",
+            "uniqueAddressesInteractedWithPercentile": "0.93%",
+            "uniqueDaysActivePercentile": "4.36%",
+            "agePercentile": "9.52%",
+            "volumePercentile": "6.91%",
+            "gasPaidPercentile": "3.42%"
+        }     
+        # print(os.getenv('CHROME_DRIVER_PATH'))
+        rendered_html = substitute_template(html_template, me, ')hdgvb')
+        print(rendered_html)
         options = Options()
         options.add_argument('--headless')
         options.add_argument('--no-sandbox')
@@ -36,7 +48,7 @@ def test():
         options.add_argument("--force-device-scale-factor=3")  # Set the desired pixel density
         options.add_argument("--blink-settings=imagesEnabled=true")  # Enable image loading
 
-        service = Service(executable_path='/Users/muskan259/Documents/persona-nft-gen/chromedriver')
+        service = Service(executable_path=str(os.getenv('CHROME_DRIVER_PATH')))
         driver = webdriver.Chrome(service=service,options=options)
         encoded_html = urllib.parse.quote(rendered_html)
         driver.get("data:text/html;charset=utf-8," + encoded_html)
@@ -44,6 +56,7 @@ def test():
         wait.until(EC.visibility_of_all_elements_located((By.TAG_NAME, 'div')))
         driver.set_window_size(width, height)
         driver.get_screenshot_as_file(screenshot_file_path)
+        driver.quit()
     except Exception as e:
         print(e)
     

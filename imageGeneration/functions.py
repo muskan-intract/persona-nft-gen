@@ -1,10 +1,18 @@
 from db import db
 from string import Template
+from pymongo import UpdateOne
+
 
 def getPendingRecords(limit=10):
     personaNftCollection = db["tools.persona-nfts"]
-    records = personaNftCollection.find({"status": "TX_CONFIRMED","imageGenerationStatus":"PUSHED_IN_QUEUE"}).sort("_id", 1).limit(limit)
-    return list(records)
+    cursor = personaNftCollection.find({"status": "TX_CONFIRMED","imageGenerationStatus":"PUSHED_IN_QUEUE"}).sort("_id", 1).limit(limit)
+    data = list(cursor)
+    cursor.close()
+    updateOperation = []
+    for item in data:
+        updateOperation.append(UpdateOne({"_id": item["_id"]}, {"$set": {"imageGenerationStatus":"PROCESSING"}}, upsert=False))
+    personaNftCollection.bulk_write(updateOperation)
+    return data
 
 def update_record_status(id,**kwargs):
     dataToUpdate = {}

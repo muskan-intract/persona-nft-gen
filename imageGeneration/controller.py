@@ -7,8 +7,8 @@ from imageGeneration.functions import *
 from imageGeneration.service import *
 
 def imageGenerator(processId):
-    log_dict = {"message": "Starting image generation process...", "processId": processId}
-    Log_data(log_dict)
+    Log_data({"message": "Starting image generation process...", "processId": processId})
+    log_dict = {"processId": processId}
     log_dict['limit'] = os.getenv("LIMIT")
     records = getPendingRecords(int(os.getenv("LIMIT",5)))
     log_dict['records'] = records
@@ -19,7 +19,7 @@ def imageGenerator(processId):
     # Creating a thread pool with a maximum of 5 threads
     with concurrent.futures.ThreadPoolExecutor(max_workers) as executor:
         futures = []
-        tmp_dir = "tmp"
+        tmp_dir = processId
         os.makedirs(tmp_dir,exist_ok=True)
         for record in records:
             recordId = record.get("_id")

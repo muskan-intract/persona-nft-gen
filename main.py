@@ -16,8 +16,12 @@ if __name__ == "__main__":
         while(True):
             try:
                 processId = str(uuid.uuid4())
+                log_dict = {"message": "Image generation process started.", "processId": processId}
+                Log_data(log_dict)
                 result = imageGenerator(processId)
-                Log_data(result)
+                log_dict['result'] = result
+                log_dict['message'] =  "Image generation process completed."
+                Log_data(log_dict)
                 time.sleep(60)   
             except Exception as e:
                 Log_data({"error in main loop":str(e)})
