@@ -9,15 +9,15 @@ from imageGeneration.service import *
 def imageGenerator(processId):
     log_dict = {"message": "Starting image generation process...", "processId": processId}
     Log_data(log_dict)
-    records = getPendingRecords(int(os.getenv("LIMIT",10)))
+    records = getPendingRecords(int(os.getenv("LIMIT",5)))
     log_dict['limit'] = os.getenv("LIMIT")
     log_dict['records'] = records
     Log_data(log_dict)
     if(len(records) == 0):
         return {"message": "No records to process"}
-
+    max_workers = int(os.getenv("MAX_WORKERS",5))
     # Creating a thread pool with a maximum of 5 threads
-    with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
+    with concurrent.futures.ThreadPoolExecutor(max_workers) as executor:
         futures = []
         tmp_dir = "tmp"
         os.makedirs(tmp_dir,exist_ok=True)
