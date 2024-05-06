@@ -16,6 +16,7 @@ from selenium.webdriver.common.by import By
 s3_client = boto3.client(service_name='s3', region_name=os.getenv('REGION_NAME'), aws_access_key_id=os.getenv('AWS_ACCESS_KEY_ID'), aws_secret_access_key=os.getenv('AWS_SECRET_ACCESS_KEY'))
 
 def imageGen(tmp_dir,rendered_html,record,specificProcessId):
+    retryAttempts = record.get("retryCount",0)
     recordId = record.get("_id")
     chainId = record.get("chainId")
     tokenId = record.get("tokenId")
@@ -42,7 +43,7 @@ def imageGen(tmp_dir,rendered_html,record,specificProcessId):
         options.add_argument("--force-device-scale-factor=3")  # Set the desired pixel density
         options.add_argument("--blink-settings=imagesEnabled=true")  # Enable image loading
 
-        service = Service(executable_path=os.getenv('CHROME_DRIVER_PATH'))
+        service = Service(executable_path=str(os.getenv('CHROME_DRIVER_PATH')))
         driver = webdriver.Chrome(service=service,options=options)
         encoded_html = urllib.parse.quote(rendered_html)
         driver.get("data:text/html;charset=utf-8," + encoded_html)
@@ -54,35 +55,36 @@ def imageGen(tmp_dir,rendered_html,record,specificProcessId):
         log_dict['screenshot_completes'] = 'screen shot completed successfully.'
         Log_data(log_dict)
         # get s3 imageURL
-        # imagePath = ''
-        # if(chainId == ZKEVM_CHAIN_ID):
-        #     imagePath = f"persona-nfts/images/{os.getenv('ENVIRONMENT').lower()}/{userAddress}.png"
-        # else:
-        #     imagePath = f"persona-nfts/images/{os.getenv('ENVIRONMENT').lower()}/{chainId}/{nftContractAddress}/image/{tokenId}.png"         
-        # imageUrl = save_to_cloud(screenshot_file_path, imagePath, mimetypes.guess_type(imagePath)[0],os.getenv('BUCKET_NAME'))
-        # log_dict['image_url'] = imageUrl
-        # #get s3 metadataURL
-        # metaDataPath = ''
-        # if(chainId == ZKEVM_CHAIN_ID):
-        #     metaDataPath = f"persona-nfts/metadata/{os.getenv('ENVIRONMENT').lower()}/{tokenId}"
-        # else:
-        #     metaDataPath = f"persona-nfts/metadata/{os.getenv('ENVIRONMENT').lower()}/{chainId}/{nftContractAddress}/metadata/{tokenId}"
-        # metadata = {
-        #     'name': 'Intract Persona NFT',
-        #     'description': f"This NFT represents the on-chain persona of Intract user {userAddress}",
-        #     'image': imageUrl,
-        #     'external_url': 'https://intract.io/',
-        # }
-        # metadataJSON = json.dumps(metadata)
-        # metadataBytes = metadataJSON.encode('utf-8')
-        # metadata_url = save_to_cloud(BytesIO(metadataBytes), metaDataPath, 'application/json',os.getenv('BUCKET_NAME'))
-        # log_dict['metadata_url'] = metadata_url
+        imagePath = ''
+        if(chainId == ZKEVM_CHAIN_ID):
+            imagePath = f"persona-nfts/images/{os.getenv('ENVIRONMENT').lower()}/{userAddress}.png"
+        else:
+            imagePath = f"persona-nfts/images/{os.getenv('ENVIRONMENT').lower()}/{chainId}/{nftContractAddress}/image/{tokenId}.png"         
+        imageUrl = uploadFile(screenshot_file_path, imagePath, mimetypes.guess_type(imagePath)[0],os.getenv('BUCKET_NAME'))
+        log_dict['image_url'] = imageUrl
+        #get s3 metadataURL
+        metaDataPath = ''
+        if(chainId == ZKEVM_CHAIN_ID):
+            metaDataPath = f"persona-nfts/metadata/{os.getenv('ENVIRONMENT').lower()}/{tokenId}"
+        else:
+            metaDataPath = f"persona-nfts/metadata/{os.getenv('ENVIRONMENT').lower()}/{chainId}/{nftContractAddress}/metadata/{tokenId}"
+        metadata = {
+            'name': 'Intract Persona NFT',
+            'description': f"This NFT represents the on-chain persona of Intract user {userAddress}",
+            'image': imageUrl,
+            'external_url': 'https://intract.io/',
+        }
+        metadataJSON = json.dumps(metadata)
+        metadataBytes = metadataJSON.encode('utf-8')
+        metadata_url = uploadMetadata(metadataBytes, metaDataPath, 'application/json',os.getenv('BUCKET_NAME'))
+        log_dict['metadata_url'] = metadata_url
         return {
             "status":"SUCCESS",
             "specificProcessId" : specificProcessId,
             "recordId":recordId,
-            # "imageUrl":imageUrl,
-            # "metadataUrl":metadata_url
+            "imageUrl":imageUrl,
+            "metadataUrl":metadata_url,
+            "retryAttempts" : retryAttempts
         }
     except Exception as e:
         log_dict['error'] = str(e)
@@ -90,7 +92,8 @@ def imageGen(tmp_dir,rendered_html,record,specificProcessId):
             "status":"FAILED",
             "error":str(e),
             "specificProcessId" : specificProcessId,
-            "recordId":recordId
+            "recordId":recordId,
+            "retryAttempts" : retryAttempts
         }
     finally:
         Log_data(log_dict)
@@ -99,9 +102,7 @@ def imageGen(tmp_dir,rendered_html,record,specificProcessId):
             os.remove(screenshot_file_path)
         
 
-def save_to_cloud(file_path, aws_path, content_type, bucket_name):
-    aws_path = aws_path
-    content_type = mimetypes.guess_type(aws_path)[0]
+def uploadFile(file_path, aws_path, content_type, bucket_name):
     s3_client.upload_file(
         Filename=file_path,
         Bucket=bucket_name,
@@ -110,5 +111,16 @@ def save_to_cloud(file_path, aws_path, content_type, bucket_name):
     )
 
     url = f"https://{bucket_name}.s3.amazonaws.com/{aws_path}"
-    url = url.replace(f"https://{bucket_name}.s3.amazonaws.com/", 'https://static.highongrowth.xyz/')
-    return url        
+    url = url.replace(f"https://{bucket_name}.s3.amazonaws.com/", os.getenv('STATIC_URL')) if os.getenv('STATIC_URL') else url
+    return url  
+
+def uploadMetadata(body, aws_path, content_type, bucket_name):
+    s3_client.put_object(
+            Bucket=bucket_name,
+            Key=aws_path,
+            Body=body,
+            ContentType=content_type
+        )
+    url = f"https://{bucket_name}.s3.amazonaws.com/{aws_path}"
+    url = url.replace(f"https://{bucket_name}.s3.amazonaws.com/", os.getenv('STATIC_URL')) if os.getenv('STATIC_URL') else url
+    return url
