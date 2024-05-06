@@ -9,8 +9,8 @@ from imageGeneration.service import *
 def imageGenerator(processId):
     log_dict = {"message": "Starting image generation process...", "processId": processId}
     Log_data(log_dict)
-    records = getPendingRecords(int(os.getenv("LIMIT",5)))
     log_dict['limit'] = os.getenv("LIMIT")
+    records = getPendingRecords(int(os.getenv("LIMIT",5)))
     log_dict['records'] = records
     Log_data(log_dict)
     if(len(records) == 0):
@@ -50,7 +50,6 @@ def imageGenerator(processId):
                 continue
             html_template = configuraitons.get(chainId).get(tier).get('template')
             rendered_html = substitute_template(html_template, metricsData, userAddress)
-            
             futures.append(executor.submit(imageGen,tmp_dir,rendered_html,record,specificProcessId))
         
         # Wait for all tasks to complete
@@ -61,16 +60,20 @@ def imageGenerator(processId):
                 new_dict = {"message": "Processed record", "result": result, processId:processId}
                 Log_data(new_dict)
                 recordId = result.get('recordId')
+                retryAttempts =  result.get('retryAttempts')
                 if result.get('status') == "SUCCESS":
                     recordId = result.get('recordId')
                     imageUrl = result.get('imageUrl')
                     metadataUrl = result.get('metadataUrl')
-                    update_record_status(result.get('record'),"SUCCESS",imageUrl = imageUrl,metadataUrl = metadataUrl)
+                    update_record_status(recordId,status = "SUCCESS",imageUrl = imageUrl,metadataUrl = metadataUrl)
                     new_dict['message'] = 'updated Urls in record'
                 else:
                     retryCount = retryAttempts + 1
+                    status = "PUSHED_IN_QUEUE"
+                    if(retryCount >= int(os.getenv("MAX_RETRY_ATTEMPTS",3))):
+                        status = "FAILED"
                     new_dict['updated_retry_count'] = retryCount
-                    update_record_status(recordId,retryCount = retryCount)
+                    update_record_status(recordId,status=status, retryCount = retryCount)
                 Log_data(new_dict)    
             except Exception as e:
                 log_dict = {"error in threads": str(e)}
