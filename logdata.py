@@ -11,3 +11,4 @@ class Log_data(object):
         file = 'logs.log'
         logging.basicConfig(filename = f'{file}',format="%(message)s",level=logging.INFO)
         logging.info(data)
+        
